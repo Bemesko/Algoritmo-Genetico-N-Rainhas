@@ -31,11 +31,6 @@ def individual_list_factory():  # feito
     return new_individual_list
 
 
-def score_individual(individual):  # feito por hora
-    score = random.randrange(0, 10)
-    return score
-
-
 def sort_list_by_score(individuals_list):  # feito
     # Scores maiores indicam indivíduos piores
     return sorted(individuals_list, key=lambda individual: individual[SCORE_KEY])
