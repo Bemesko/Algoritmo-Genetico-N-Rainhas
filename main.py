@@ -3,6 +3,7 @@ from ranking import *
 from constantes import *
 from first_generation import *
 from reproducao import *
+from graphics import *
 
 
 # criando a primeira geração
