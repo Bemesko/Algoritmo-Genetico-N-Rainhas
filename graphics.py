@@ -17,12 +17,11 @@ def plot_to_board(list, score):
                 matrix[line].append("[ ]")
 
     print("~"*30)
-
+    print(f'Indivíduo: {list}')
+    print(f'Penalidade: {score}')
     for line in range(CROMOSSOME_LENGTH):
         for column in range(CROMOSSOME_LENGTH):
             print(f"{matrix[line][column]}", end=" ")
         print(" ")
-    print("~"*15)
-    print(list)
-    print(score)
+
     print("~"*30)

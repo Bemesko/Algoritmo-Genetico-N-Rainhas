@@ -22,7 +22,7 @@ def individual_factory():  # feito
 def individual_list_factory():  # feito
 
     new_individual_list = []
-    for individual in range(INDIVIDUAL_NUMBER):
+    for individual in range(INDIVIDUAL_AMOUNT):
         generated_individual = individual_factory()
         new_individual_list.append(generated_individual)
         print("Individuo " + str(individual + 1) + " geraldo")
