@@ -1,5 +1,3 @@
-
-
 # Criando constantes
 INDIVIDUAL_NUMBER = 50
 CROMOSSOME_LENGTH = 20

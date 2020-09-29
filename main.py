@@ -1,8 +1,8 @@
 import random
 from ranking import *
 from constantes import *
-from first_generation import * 
-from reproducao import * 
+from first_generation import *
+from reproducao import *
 
 
 # criando a primeira geração
@@ -28,6 +28,6 @@ for i in individuals_list:
 #print("Piores caras removidos!\n" + str(individuals_list))
 
 
-# 
+#
 crossing_over()  # quando for continuar, fazer isso aqui
 check_if_needs_next_generation()

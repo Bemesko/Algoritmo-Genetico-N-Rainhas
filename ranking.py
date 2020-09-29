@@ -26,6 +26,8 @@ def order_list(lista, mult_y):
     lista.sort()
 
 # Função que calcula a penalidade
+
+
 def calcular_multa(lista, penalty):
     for y in range(len(lista)-1):
         if (lista[y] == lista[y+1]):
@@ -45,7 +47,6 @@ def kill_worst_individuals(individuals_list):
         del(individuals_list[-1])
 
 
-
 # Função que cria a tabela visual de ascii
 def plot_to_board(list, score):
 
@@ -56,7 +57,7 @@ def plot_to_board(list, score):
     for line in range(CROMOSSOME_LENGTH):
         for column in range(CROMOSSOME_LENGTH):
             if (line == list[column]):
-                matrix[line].append("[x]") 
+                matrix[line].append("[x]")
             else:
                 matrix[line].append("[ ]")
 
@@ -78,11 +79,10 @@ if __name__ == "__main__":
     tamanho = []
 
     for i in range(8):
-        tamanho.append([ ])
-    
+        tamanho.append([])
+
     for i in range(8):
         matrix.append(tamanho)
-
 
     matrix = []
     for i in range(8):
