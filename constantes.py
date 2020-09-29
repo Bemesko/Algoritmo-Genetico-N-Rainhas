@@ -1,0 +1,8 @@
+
+
+# Criando constantes
+INDIVIDUAL_NUMBER = 50
+CROMOSSOME_LENGTH = 20
+GENES_KEY = "genes"
+SCORE_KEY = "score"
+REMOVED_INDIVIDUAL_AMOUNT = 49
