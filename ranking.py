@@ -10,9 +10,9 @@ def score_individual(individual_chromossome):
     clone_b = copy.deepcopy(individual_chromossome)
     penalty = 0
     order_list(clone_a, 1)
-    penalty = calcular_multa(clone_a, penalty)
+    penalty = calculate_penalty(clone_a, penalty)
     order_list(clone_b, -1)
-    penalty = calcular_multa(clone_b, penalty)
+    penalty = calculate_penalty(clone_b, penalty)
 
     print(f"individuo teve multa = {penalty}")
 
@@ -20,17 +20,17 @@ def score_individual(individual_chromossome):
 
 
 # Função que faz as diagonais se tornarem linhas horizontais
-def order_list(lista, mult_y):
-    for y in range(len(lista)):
-        lista[y] = lista[y] + y * mult_y
-    lista.sort()
+def order_list(list, y_factor):
+    for y in range(len(list)):
+        list[y] = list[y] + y * y_factor
+    list.sort()
 
 # Função que calcula a penalidade
 
 
-def calcular_multa(lista, penalty):
-    for y in range(len(lista)-1):
-        if (lista[y] == lista[y+1]):
+def calculate_penalty(list, penalty):
+    for y in range(len(list)-1):
+        if (list[y] == list[y+1]):
             penalty += 1
     return penalty
 
