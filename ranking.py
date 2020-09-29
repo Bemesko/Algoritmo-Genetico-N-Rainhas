@@ -5,16 +5,16 @@ from constantes import *
 
 
 # Função que ordena e calcula a penalidade do individuo
-def score_individual(lista):
-    clone_a = copy.deepcopy(lista)
-    clone_b = copy.deepcopy(lista)
+def score_individual(individual_chromossome):
+    clone_a = copy.deepcopy(individual_chromossome)
+    clone_b = copy.deepcopy(individual_chromossome)
     penalty = 0
     order_list(clone_a, 1)
     penalty = calcular_multa(clone_a, penalty)
     order_list(clone_b, -1)
     penalty = calcular_multa(clone_b, penalty)
 
-    print(f"individuo {0} teve multa = {penalty}")
+    print(f"individuo teve multa = {penalty}")
 
     return penalty
 

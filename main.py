@@ -18,16 +18,12 @@ for individual in individuals_list:
 individuals_list = sort_list_by_score(individuals_list)
 for i in individuals_list:
     print(i)
-#print("Lista organizada!\n" + str(individuals_list))
 
 # Deletando os piores individuos
 print("\nsó a nata: ")
 kill_worst_individuals(individuals_list)
 for i in individuals_list:
     plot_to_board(i[GENES_KEY], i[SCORE_KEY])
-#print("Piores caras removidos!\n" + str(individuals_list))
 
-
-#
 crossing_over()  # quando for continuar, fazer isso aqui
 check_if_needs_next_generation()
