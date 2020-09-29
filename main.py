@@ -1,0 +1,23 @@
+import random
+from funcoes import *
+
+# criando a primeira geração
+individuals_list = individual_list_factory()
+print("lista de individuos gerada!")
+
+# calculando a penalidade dos individuos
+for individual in individuals_list:
+    individual[SCORE_KEY] = score_individual(individual[GENES_KEY])
+    plot_to_board(individual[GENES_KEY], individual[SCORE_KEY])
+
+# Ordenando os individos de acordo com suas penalidades
+individuals_list = sort_list_by_score(individuals_list)
+print("Lista organizada!\n" + str(individuals_list))
+
+# Deletando os piores individuos
+kill_worst_individuals(individuals_list)
+print("Piores caras removidos!\n" + str(individuals_list))
+
+#
+crossing_over()  # quando for continuar, fazer isso aqui
+check_if_needs_next_generation()
