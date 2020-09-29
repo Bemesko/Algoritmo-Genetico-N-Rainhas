@@ -1,8 +1,8 @@
 import random
 from ranking import *
-from constantes import *
+from constants import *
 from first_generation import *
-from reproducao import *
+from reproduction import *
 from graphics import *
 
 

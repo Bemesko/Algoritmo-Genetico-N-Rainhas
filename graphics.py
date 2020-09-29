@@ -1,4 +1,4 @@
-from constantes import *
+from constants import *
 
 # Função que cria a tabela visual de ascii
 
