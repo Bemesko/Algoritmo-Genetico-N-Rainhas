@@ -48,18 +48,4 @@ def kill_worst_individuals(individuals_list):
 
 
 if __name__ == "__main__":
-
-    matrix = []
-    tamanho = []
-
-    for i in range(8):
-        tamanho.append([])
-
-    for i in range(8):
-        matrix.append(tamanho)
-
-    matrix = []
-    for i in range(8):
-        matrix.append(['[ ]', '[ ]', '[ ]', '[ ]', '[ ]', '[ ]', '[ ]', '[ ]'])
-    print(matrix)
-    print(type(matrix))
+    pass
