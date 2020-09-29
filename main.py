@@ -26,5 +26,6 @@ kill_worst_individuals(individuals_list)
 for i in individuals_list:
     plot_to_board(i[GENES_KEY], i[SCORE_KEY])
 
-crossing_over()  # quando for continuar, fazer isso aqui
-check_if_needs_next_generation()
+crossing_over(individuals_list)
+
+check_if_needs_next_generation(individuals_list)
