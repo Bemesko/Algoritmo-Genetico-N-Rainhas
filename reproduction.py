@@ -15,43 +15,43 @@ def crossing_over(individuals_list):
             GENES_KEY: [],
             SCORE_KEY: 0
         }
-
-        # Selecionando pais sobreviventes aleatorios
         crossing_over_parents = [0, 0]
-        while(crossing_over_parents[0] == crossing_over_parents[1]):
-            crossing_over_parents = [individuals_list[random.randrange(0, SURVIVING_INDIVIDUAL_AMOUNT-1)],
-                                     individuals_list[random.randrange(0, SURVIVING_INDIVIDUAL_AMOUNT-1)]]
+        crossing_over_parents = select_parents(
+            crossing_over_parents, individuals_list)
 
-        # Selecionando ponto de split aleatorio
-        cromossome_split = random.randrange(2, CROMOSSOME_LENGTH-3)
-
-        # Fazendo crossing over em si
-        for gene in range(CROMOSSOME_LENGTH):
-            if(gene < cromossome_split):
-                crossing_over_baby[GENES_KEY].append(
-                    crossing_over_parents[0][GENES_KEY][gene])
-            else:
-                crossing_over_baby[GENES_KEY].append(
-                    crossing_over_parents[1][GENES_KEY][gene])
+        make_new_baby(crossing_over_baby, crossing_over_parents)
         new_generation.append(crossing_over_baby)
 
-        # Prints
-        # print("mamai e papai")
-        # print(crossing_over_parents[0][GENES_KEY])
-        # print(crossing_over_parents[1][GENES_KEY])
         print("Nosso novo neném: ")
         print(crossing_over_baby[GENES_KEY])
     for i in new_generation:
         print(i)
 
+    # Implementar Mutação
+
     # adicionar novos indivíduos na lista de indivíduos
-    print(individuals_list)
-    individuals_list = new_generation
-    print(individuals_list)
+    return new_generation
 
 
-# Função que
-def check_if_needs_next_generation(individuals_list):
+def make_new_baby(crossing_over_baby, crossing_over_parents):
+    # Selecionando ponto de split aleatorio
+    cromossome_split = random.randrange(1, CROMOSSOME_LENGTH-2)
+
+    # Fazendo crossing over em si
+    for gene in range(CROMOSSOME_LENGTH):
+        if(gene < cromossome_split):
+            crossing_over_baby[GENES_KEY].append(
+                crossing_over_parents[0][GENES_KEY][gene])
+        else:
+            crossing_over_baby[GENES_KEY].append(
+                crossing_over_parents[1][GENES_KEY][gene])
+
+
+def select_parents(crossing_over_parents, individuals_list):
+    while(crossing_over_parents[0] == crossing_over_parents[1]):
+        crossing_over_parents = [individuals_list[random.randrange(0, SURVIVING_INDIVIDUAL_AMOUNT-1)],
+                                 individuals_list[random.randrange(0, SURVIVING_INDIVIDUAL_AMOUNT-1)]]
+    return crossing_over_parents
 
 
 if __name__ == "__main__":

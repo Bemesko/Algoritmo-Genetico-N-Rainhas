@@ -15,17 +15,27 @@ for individual in individuals_list:
     individual[SCORE_KEY] = score_individual(individual[GENES_KEY])
     plot_to_board(individual[GENES_KEY], individual[SCORE_KEY])
 
-# Ordenando os individos de acordo com suas penalidades
 individuals_list = sort_list_by_score(individuals_list)
+while(individuals_list[2][SCORE_KEY] > 2):
+
+    # Deletando os piores individuos
+    print("\nsó a nata: ")
+    kill_worst_individuals(individuals_list)
+    for i in individuals_list:
+        plot_to_board(i[GENES_KEY], i[SCORE_KEY])
+
+    individuals_list = crossing_over(individuals_list)
+
+    for individual in individuals_list:
+        individual[SCORE_KEY] = score_individual(individual[GENES_KEY])
+        plot_to_board(individual[GENES_KEY], individual[SCORE_KEY])
+
+    # Ordenando os individos de acordo com suas penalidades
+    individuals_list = sort_list_by_score(individuals_list)
+    for i in individuals_list:
+        print(i)
+
+    # Problema: Crossing over não está impedindo genes de repetirem, gerando carinhas nas mesmas linhas
+print("Algoritmo genético concluído")
 for i in individuals_list:
     print(i)
-
-# Deletando os piores individuos
-print("\nsó a nata: ")
-kill_worst_individuals(individuals_list)
-for i in individuals_list:
-    plot_to_board(i[GENES_KEY], i[SCORE_KEY])
-
-crossing_over(individuals_list)
-
-check_if_needs_next_generation(individuals_list)
