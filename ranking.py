@@ -10,9 +10,9 @@ def score_individual(individual_chromossome):
     clone_b = copy.deepcopy(individual_chromossome)
     penalty = 0
     order_list(clone_a, 1)
-    penalty = calculate_penalty(clone_a, penalty)
+    penalty += calculate_penalty(clone_a, penalty)
     order_list(clone_b, -1)
-    penalty = calculate_penalty(clone_b, penalty)
+    penalty += calculate_penalty(clone_b, penalty)
 
     print(f"individuo teve multa = {penalty}")
 

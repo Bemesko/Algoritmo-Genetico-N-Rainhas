@@ -14,9 +14,9 @@ def crossing_over(individuals_list):
     for i in new_generation:
         print(i)
 
+# Problema: Crossing over não está impedindo genes de repetirem, gerando carinhas nas mesmas linhas
     # Implementar Mutação
     new_generation = mutate(new_generation)
-    # adicionar novos indivíduos na lista de indivíduos
     return new_generation
 
 

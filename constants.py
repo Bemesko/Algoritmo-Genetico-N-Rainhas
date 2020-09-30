@@ -13,7 +13,6 @@ GENES_KEY = "genes"
 SCORE_KEY = "score"
 
 
-
 # individuos 10
 # mata 50%
 # 50% sobra [lista original so com a metade]

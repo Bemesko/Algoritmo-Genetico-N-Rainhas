@@ -1,7 +1,7 @@
-import random
 import copy
 
 from constants import *
+from utilities import *
 
 
 # Função que cria individuos da primeira geração

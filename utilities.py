@@ -1,3 +1,4 @@
+import random
 from constants import *
 
 # Função que cria a tabela visual de ascii
@@ -28,7 +29,7 @@ def plot_to_board(list, score):
 
 
 def populate_with_unique_values(new_list, max_length, min_length=0):
-    while len(new_list) < CROMOSSOME_LENGTH:
-        new_element = random.randint(0, CROMOSSOME_LENGTH-1)
+    while len(new_list) < max_length:
+        new_element = random.randint(0, max_length-1)
         if new_element not in new_list:
             new_list.append(new_element)

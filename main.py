@@ -1,9 +1,7 @@
-import random
 from ranking import *
 from constants import *
 from first_generation import *
 from reproduction import *
-from graphics import *
 
 
 # criando a primeira geração
@@ -16,7 +14,7 @@ for individual in individuals_list:
     plot_to_board(individual[GENES_KEY], individual[SCORE_KEY])
 
 individuals_list = sort_list_by_score(individuals_list)
-while(individuals_list[2][SCORE_KEY] > 4):
+while(individuals_list[1][SCORE_KEY] > 1):
 
     # Deletando os piores individuos
     print("\nsó a nata: ")
@@ -35,7 +33,6 @@ while(individuals_list[2][SCORE_KEY] > 4):
     for i in individuals_list:
         print(i)
 
-    # Problema: Crossing over não está impedindo genes de repetirem, gerando carinhas nas mesmas linhas
 print("Algoritmo genético concluído")
 for i in individuals_list:
     print(i)
