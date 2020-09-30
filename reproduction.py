@@ -17,10 +17,10 @@ def crossing_over(individuals_list):
         }
 
         # Selecionando pais sobreviventes aleatorios
-        crossing_over_parents = [0,0]
+        crossing_over_parents = [0, 0]
         while(crossing_over_parents[0] == crossing_over_parents[1]):
-            crossing_over_parents = [individuals_list[random.randrange(0,SURVIVING_INDIVIDUAL_AMOUNT-1)], 
-                                    individuals_list[random.randrange(0,SURVIVING_INDIVIDUAL_AMOUNT-1)]]
+            crossing_over_parents = [individuals_list[random.randrange(0, SURVIVING_INDIVIDUAL_AMOUNT-1)],
+                                     individuals_list[random.randrange(0, SURVIVING_INDIVIDUAL_AMOUNT-1)]]
 
         # Selecionando ponto de split aleatorio
         cromossome_split = random.randrange(2, CROMOSSOME_LENGTH-3)
@@ -33,7 +33,7 @@ def crossing_over(individuals_list):
             else:
                 crossing_over_baby[GENES_KEY].append(
                     crossing_over_parents[1][GENES_KEY][gene])
-        new_generation.append(crossing_over_baby[GENES_KEY])
+        new_generation.append(crossing_over_baby)
 
         # Prints
         # print("mamai e papai")
@@ -41,16 +41,17 @@ def crossing_over(individuals_list):
         # print(crossing_over_parents[1][GENES_KEY])
         print("Nosso novo neném: ")
         print(crossing_over_baby[GENES_KEY])
-        for i in new_generation:
-            print(i)
+    for i in new_generation:
+        print(i)
 
-        # adicionar novos indivíduos na lista de indivíduos
-        # individuals_list.append(crossing_over_individuals)
+    # adicionar novos indivíduos na lista de indivíduos
+    print(individuals_list)
+    individuals_list = new_generation
+    print(individuals_list)
 
-        
+
 # Função que
 def check_if_needs_next_generation(individuals_list):
-    print("nova geracao checada!")
 
 
 if __name__ == "__main__":
