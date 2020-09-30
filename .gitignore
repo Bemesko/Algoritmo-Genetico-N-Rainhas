@@ -2,3 +2,5 @@
 .vscode/.ropeproject/config.py
 .vscode/.ropeproject/objectdb
 __pycache__/funcoes.cpython-37.pyc
+__pycache__/constants.cpython-37.pyc
+*.pyc
