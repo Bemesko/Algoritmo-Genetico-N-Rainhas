@@ -9,31 +9,36 @@ def crossing_over(individuals_list):
     # fazer com que o menor cara fique de certeza nos sobreviventes
     new_generation = []
     while (len(new_generation) < 10):
-
-        # Declarando BEBE
-        crossing_over_baby = {
-            GENES_KEY: [],
-            SCORE_KEY: 0
-        }
-        crossing_over_parents = [0, 0]
-        crossing_over_parents = select_parents(
-            crossing_over_parents, individuals_list)
-
-        make_new_baby(crossing_over_baby, crossing_over_parents)
-        new_generation.append(crossing_over_baby)
-
-        print("Nosso novo neném: ")
-        print(crossing_over_baby[GENES_KEY])
+        add_baby_to_generation(new_generation, individuals_list)
+    print("Nenéns criados:")
     for i in new_generation:
         print(i)
 
     # Implementar Mutação
-
+    new_generation = mutate(new_generation)
     # adicionar novos indivíduos na lista de indivíduos
     return new_generation
 
 
-def make_new_baby(crossing_over_baby, crossing_over_parents):
+def add_baby_to_generation(baby_generation, parents_list):
+    # Declarando BEBE e pais vazios
+    crossing_over_baby = {
+        GENES_KEY: [],
+        SCORE_KEY: 0
+    }
+    crossing_over_parents = [0, 0]
+
+    crossing_over_parents = select_parents(
+        crossing_over_parents, parents_list)
+
+    populate_new_baby(crossing_over_baby, crossing_over_parents)
+    baby_generation.append(crossing_over_baby)
+
+    print("Nosso novo neném: ")
+    print(crossing_over_baby[GENES_KEY])
+
+
+def populate_new_baby(crossing_over_baby, crossing_over_parents):
     # Selecionando ponto de split aleatorio
     cromossome_split = random.randrange(1, CROMOSSOME_LENGTH-2)
 
@@ -54,7 +59,12 @@ def select_parents(crossing_over_parents, individuals_list):
     return crossing_over_parents
 
 
+def mutate(generation):
+    print("mutation done!")
+    return generation
+
+
 if __name__ == "__main__":
-    from first_generation import *
+    from first_generation import individual_list_factory
     individuals_list = individual_list_factory()
     crossing_over(individuals_list)

@@ -4,3 +4,5 @@
 __pycache__/funcoes.cpython-37.pyc
 __pycache__/constants.cpython-37.pyc
 *.pyc
+__pycache__/reproduction.cpython-37.pyc
+__pycache__/*.pyc
