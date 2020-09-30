@@ -42,7 +42,6 @@ def populate_new_baby(crossing_over_baby, crossing_over_parents):
     # Selecionando ponto de split aleatorio
     cromossome_split = random.randrange(1, CROMOSSOME_LENGTH-2)
 
-    # Fazendo crossing over em si
     for gene in range(CROMOSSOME_LENGTH):
         if(gene < cromossome_split):
             crossing_over_baby[GENES_KEY].append(
@@ -60,6 +59,7 @@ def select_parents(crossing_over_parents, individuals_list):
 
 
 def mutate(generation):
+    generation
     print("mutation done!")
     return generation
 

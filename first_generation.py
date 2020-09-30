@@ -11,10 +11,7 @@ def individual_factory():  # feito
         SCORE_KEY: 0
     }
 
-    while len(new_individual[GENES_KEY]) < CROMOSSOME_LENGTH:
-        r = random.randint(0, CROMOSSOME_LENGTH-1)
-        if r not in new_individual[GENES_KEY]:
-            new_individual[GENES_KEY].append(r)
+    populate_with_unique_values(new_individual[GENES_KEY], CROMOSSOME_LENGTH)
     return new_individual
 
 

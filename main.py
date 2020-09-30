@@ -16,7 +16,7 @@ for individual in individuals_list:
     plot_to_board(individual[GENES_KEY], individual[SCORE_KEY])
 
 individuals_list = sort_list_by_score(individuals_list)
-while(individuals_list[2][SCORE_KEY] > 2):
+while(individuals_list[2][SCORE_KEY] > 4):
 
     # Deletando os piores individuos
     print("\nsó a nata: ")
