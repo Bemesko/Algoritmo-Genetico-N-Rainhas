@@ -14,7 +14,6 @@ def crossing_over(individuals_list):
     for i in new_generation:
         print(i)
 
-# Problema: Crossing over não está impedindo genes de repetirem, gerando carinhas nas mesmas linhas
     # Implementar Mutação
     new_generation = mutate(new_generation)
     return new_generation
@@ -31,18 +30,18 @@ def add_baby_to_generation(baby_generation, parents_list):
     crossing_over_parents = select_parents(
         crossing_over_parents, parents_list)
 
-    populate_new_baby(crossing_over_baby, crossing_over_parents)
+    create_new_baby(crossing_over_baby, crossing_over_parents)
     baby_generation.append(crossing_over_baby)
 
     print("Nosso novo neném: ")
     print(crossing_over_baby[GENES_KEY])
 
 
-def populate_new_baby(crossing_over_baby, crossing_over_parents):
+def create_new_baby(crossing_over_baby, crossing_over_parents):
     # Selecionando ponto de split aleatorio
-    cromossome_split = random.randrange(1, CROMOSSOME_LENGTH-2)
+    cromossome_split = random.randrange(1, CHROMOSSOME_LENGTH-2)
 
-    for gene in range(CROMOSSOME_LENGTH):
+    for gene in range(CHROMOSSOME_LENGTH):
         if(gene < cromossome_split):
             crossing_over_baby[GENES_KEY].append(
                 crossing_over_parents[0][GENES_KEY][gene])
@@ -59,9 +58,21 @@ def select_parents(crossing_over_parents, individuals_list):
 
 
 def mutate(generation):
-    generation
+    # criar uma lista com caras aleatórios para fazer a mutação
+    individuals_to_mutate = []
+    for i in range(MUTATED_INDIVIDUALS_AMOUNT):
+        individuals_to_mutate.append(generation[i])
+    # substituir o valor de um gene por outro
+    for individual in individuals_to_mutate:
+        mutate_genes(individual)
     print("mutation done!")
     return generation
+
+
+def mutate_genes(individual):
+    genes = individual[GENES_KEY]
+    exchanged_genes = []
+    # criar uma lista com os genes para serem mudados com o tamanho da MUTATED_GENES_AMOUNT
 
 
 if __name__ == "__main__":

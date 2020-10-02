@@ -11,7 +11,7 @@ def individual_factory():  # feito
         SCORE_KEY: 0
     }
 
-    populate_with_unique_values(new_individual[GENES_KEY], CROMOSSOME_LENGTH)
+    populate_with_unique_values(new_individual[GENES_KEY], CHROMOSSOME_LENGTH)
     return new_individual
 
 
