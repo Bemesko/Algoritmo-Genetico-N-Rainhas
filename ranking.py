@@ -11,13 +11,8 @@ def score_individual(individual_chromossome):
 
     clone_a = copy.deepcopy(individual_chromossome)
     clone_b = copy.deepcopy(individual_chromossome)
-    clone_reto = copy.deepcopy(individual_chromossome)
 
-    # Calculando penalidade de gente na mesma linha
-    clone_reto.sort()
-    for i in range(len(clone_reto)-1):
-        if (i == i+1):
-            penalty += 1
+    apply_penalty_for_same_line(individual_chromossome)
 
     # Calculando diagonal \
     order_list(clone_a, 1)
@@ -28,6 +23,14 @@ def score_individual(individual_chromossome):
     print(f"individuo teve multa = {penalty}")
 
     return penalty
+
+
+def apply_penalty_for_same_line(individual_chromossome):
+    clone_reto = copy.deepcopy(individual_chromossome)
+    clone_reto.sort()
+    for i in range(len(clone_reto)-1):
+        if (i == i+1):
+            penalty += 1
 
 
 # Função que faz as diagonais se tornarem linhas horizontais
@@ -59,7 +62,7 @@ def kill_worst_individuals(individuals_list):
 
 
 if __name__ == "__main__":
-    from graphics import *
+    from utilities import *
     from constants import *
 
     lista_teste = [[2, 5, 4, 3, 7, 6, 0, 7], [7, 3, 0, 1, 6, 4, 5, 2], [
