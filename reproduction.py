@@ -73,6 +73,7 @@ def mutate_genes(individual):
     genes = individual[GENES_KEY]
     exchanged_genes = []
     # criar uma lista com os genes para serem mudados com o tamanho da MUTATED_GENES_AMOUNT
+    # TODO
 
 
 if __name__ == "__main__":
