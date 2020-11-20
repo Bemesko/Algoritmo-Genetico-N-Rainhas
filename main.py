@@ -20,12 +20,14 @@ for i in individuals_list:
 x = 0
 y = 20
 while(individuals_list[0][SCORE_KEY] > 0):
+    # TODO adicionar contador de gerações
     x = x+1
     if x == y:
         continuar = input('quer rodar mais 50?')
         if continuar == "":
             break
         else:
+            # TODO mudar pra 20
             y += 50
 
     # Deletando os piores individuos

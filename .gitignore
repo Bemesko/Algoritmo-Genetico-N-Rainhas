@@ -2,4 +2,4 @@
 .vscode/.ropeproject/config.py
 .vscode/.ropeproject/objectdb
 *.pyc
-__pycache__/*
+/__pycache__/*.pyc
