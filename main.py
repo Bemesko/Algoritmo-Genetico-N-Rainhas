@@ -16,8 +16,17 @@ for individual in individuals_list:
 individuals_list = sort_list_by_score(individuals_list)
 for i in individuals_list:
     print(i)
-
+    
+x = 0
+y = 20
 while(individuals_list[0][SCORE_KEY] > 0):
+    x = x+1
+    if x == y:
+        continuar = input('quer rodar mais 50?')
+        if continuar == "":
+            break
+        else:
+            y += 50 
 
     # Deletando os piores individuos
     print("\nsó a nata: ")
@@ -35,6 +44,8 @@ while(individuals_list[0][SCORE_KEY] > 0):
     individuals_list = sort_list_by_score(individuals_list)
     for i in individuals_list:
         print(i)
+    
+    
 
 print("Algoritmo genético concluído")
 for i in individuals_list:

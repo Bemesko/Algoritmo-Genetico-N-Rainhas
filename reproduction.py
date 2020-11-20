@@ -12,7 +12,7 @@ def crossing_over(individuals_list):
         add_baby_to_generation(new_generation, individuals_list)
     print("Nenéns criados:")
     for i in new_generation:
-        print(i)
+        print(i[GENES_KEY])
 
     # Implementar Mutação
     new_generation = mutate(new_generation)
@@ -33,8 +33,6 @@ def add_baby_to_generation(baby_generation, parents_list):
     create_new_baby(crossing_over_baby, crossing_over_parents)
     baby_generation.append(crossing_over_baby)
 
-    print("Nosso novo neném: ")
-    print(crossing_over_baby[GENES_KEY])
 
 
 def create_new_baby(crossing_over_baby, crossing_over_parents):
@@ -76,7 +74,10 @@ def mutate_genes(individual):
     # criar uma lista com os genes para serem mudados com o tamanho da MUTATED_GENES_AMOUNT
     for i in range(random.randrange(1, int(CHROMOSSOME_LENGTH/2))):
         # TODO deixar aleatório
-        exchanged_genes.append(genes[i])
+        # TODO fazer uma lista de escolhidos em um for e depois usar outro for pra aplica-los
+        # escolhido.append(genes[random.randrange(0,CHROMOSSOME_LENGTH)]) 
+
+        exchanged_genes.append(escolhido)
     i = 0
     for gene in exchanged_genes:
         mod = random.randrange(-2, 2)
