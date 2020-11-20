@@ -12,7 +12,7 @@ def score_individual(individual_chromossome):
     clone_a = copy.deepcopy(individual_chromossome)
     clone_b = copy.deepcopy(individual_chromossome)
 
-    apply_penalty_for_same_line(individual_chromossome)
+    penalty = apply_penalty_for_same_line(individual_chromossome, penalty)
 
     # Calculando diagonal \
     order_list(clone_a, 1)
@@ -25,12 +25,13 @@ def score_individual(individual_chromossome):
     return penalty
 
 
-def apply_penalty_for_same_line(individual_chromossome):
+def apply_penalty_for_same_line(individual_chromossome, penalty):
     clone_reto = copy.deepcopy(individual_chromossome)
     clone_reto.sort()
     for i in range(len(clone_reto)-1):
         if (i == i+1):
             penalty += 1
+    return penalty
 
 
 # Função que faz as diagonais se tornarem linhas horizontais
