@@ -59,6 +59,7 @@ def select_parents(crossing_over_parents, individuals_list):
 
 def mutate(generation):
     # criar uma lista com caras aleatórios para fazer a mutação
+    # TODO não tá sendo aleatório
     individuals_to_mutate = []
     for i in range(MUTATED_INDIVIDUALS_AMOUNT):
         individuals_to_mutate.append(generation[i])
@@ -73,6 +74,15 @@ def mutate_genes(individual):
     genes = individual[GENES_KEY]
     exchanged_genes = []
     # criar uma lista com os genes para serem mudados com o tamanho da MUTATED_GENES_AMOUNT
+    for i in range(random.randrange(1, int(CHROMOSSOME_LENGTH/2))):
+        # TODO deixar aleatório
+        exchanged_genes.append(genes[i])
+    i = 0
+    for gene in exchanged_genes:
+        mod = random.randrange(-2, 2)
+        gene += mod
+        genes[i] = abs(gene)
+        i += 1
 
 
 if __name__ == "__main__":

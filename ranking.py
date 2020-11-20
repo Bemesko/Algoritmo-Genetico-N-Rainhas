@@ -3,33 +3,34 @@ import copy
 
 from constants import *
 
-
 # Função que ordena e calcula a penalidade do individuo
-def score_individual(individual_chromossome):
 
-    penalty = 0
+
+def score_individual(individual_chromossome):
 
     clone_a = copy.deepcopy(individual_chromossome)
     clone_b = copy.deepcopy(individual_chromossome)
 
-    penalty = apply_penalty_for_same_line(individual_chromossome, penalty)
+    penalty = apply_penalty_for_same_line(individual_chromossome)
 
     # Calculando diagonal \
     order_list(clone_a, 1)
-    penalty += calculate_penalty(clone_a, penalty)
+    penalty += calculate_penalty(clone_a)
+    # Calculando diagonal /
     order_list(clone_b, -1)
-    penalty += calculate_penalty(clone_b, penalty)
+    penalty += calculate_penalty(clone_b)
 
     print(f"individuo teve multa = {penalty}")
 
     return penalty
 
 
-def apply_penalty_for_same_line(individual_chromossome, penalty):
+def apply_penalty_for_same_line(individual_chromossome):
+    penalty = 0
     clone_reto = copy.deepcopy(individual_chromossome)
     clone_reto.sort()
     for i in range(len(clone_reto)-1):
-        if (i == i+1):
+        if (clone_reto[i] == clone_reto[i+1]):
             penalty += 1
     return penalty
 
@@ -43,7 +44,8 @@ def order_list(list, y_factor):
 # Função que calcula a penalidade
 
 
-def calculate_penalty(list, penalty):
+def calculate_penalty(list):
+    penalty = 0
     for y in range(len(list)-1):
         if (list[y] == list[y+1]):
             penalty += 1
