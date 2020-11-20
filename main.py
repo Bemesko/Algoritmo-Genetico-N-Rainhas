@@ -6,7 +6,7 @@ from reproduction import *
 
 # criando a primeira geração
 individuals_list = individual_list_factory()
-print("lista de individuos gerada!")
+print("lista de individuos geralda!")
 
 # calculando a penalidade dos individuos
 for individual in individuals_list:
@@ -16,7 +16,7 @@ for individual in individuals_list:
 individuals_list = sort_list_by_score(individuals_list)
 for i in individuals_list:
     print(i)
-    
+
 x = 0
 y = 20
 while(individuals_list[0][SCORE_KEY] > 0):
@@ -26,7 +26,7 @@ while(individuals_list[0][SCORE_KEY] > 0):
         if continuar == "":
             break
         else:
-            y += 50 
+            y += 50
 
     # Deletando os piores individuos
     print("\nsó a nata: ")
@@ -44,8 +44,7 @@ while(individuals_list[0][SCORE_KEY] > 0):
     individuals_list = sort_list_by_score(individuals_list)
     for i in individuals_list:
         print(i)
-    
-    
+
 
 print("Algoritmo genético concluído")
 for i in individuals_list:
