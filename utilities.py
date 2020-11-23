@@ -1,10 +1,9 @@
 import random
 from constants import *
 
-# Função que cria a tabela visual de ascii
-
 
 def plot_to_board(list, score):
+    """Função que cria a tabela visual de ascii"""
 
     matrix = []
     for i in range(CHROMOSSOME_LENGTH):

@@ -7,21 +7,23 @@ def crossing_over(individuals_list):
     """Função que pega os melhores indivíduos de uma geração e 
     combina os números entre eles para criar indivíduos melhores"""
 
-    # fazer com que o menor cara fique de certeza nos sobreviventes
+    # TODO fazer com que o menor cara fique de certeza nos sobreviventes
     new_generation = []
     while (len(new_generation) < 10):
         add_baby_to_generation(new_generation, individuals_list)
+
     print("Nenéns criados:")
     for i in new_generation:
         print(i[GENES_KEY])
 
-    # Implementar Mutação
     new_generation = mutate_generation(new_generation)
     return new_generation
 
 
 def add_baby_to_generation(baby_generation, parents_list):
-    # Declarando BEBE e pais vazios
+    """Cria um bebê vazio, escolhe os pais dentro de uma lista de indivíduos
+    e adiciona o bebê na lista baby_generation"""
+
     crossing_over_baby = {
         GENES_KEY: [],
         SCORE_KEY: 0
@@ -35,6 +37,16 @@ def add_baby_to_generation(baby_generation, parents_list):
     baby_generation.append(crossing_over_baby)
 
 
+def select_parents(crossing_over_parents, individuals_list):
+    """Seleciona dois indivíduos aleatórios de uma lista e retorna eles"""
+
+    while(crossing_over_parents[0] == crossing_over_parents[1]):
+        #! Acho que o SURVIVING_INDIVIDUAL_AMOUNT não era pra ser usado desse jeito
+        crossing_over_parents = [individuals_list[random.randrange(0, SURVIVING_INDIVIDUAL_AMOUNT-1)],
+                                 individuals_list[random.randrange(0, SURVIVING_INDIVIDUAL_AMOUNT-1)]]
+    return crossing_over_parents
+
+
 def create_new_baby(crossing_over_baby, crossing_over_parents):
     # Selecionando ponto de split aleatorio
     cromossome_split = random.randrange(1, CHROMOSSOME_LENGTH-2)
@@ -46,13 +58,6 @@ def create_new_baby(crossing_over_baby, crossing_over_parents):
         else:
             crossing_over_baby[GENES_KEY].append(
                 crossing_over_parents[1][GENES_KEY][gene])
-
-
-def select_parents(crossing_over_parents, individuals_list):
-    while(crossing_over_parents[0] == crossing_over_parents[1]):
-        crossing_over_parents = [individuals_list[random.randrange(0, SURVIVING_INDIVIDUAL_AMOUNT-1)],
-                                 individuals_list[random.randrange(0, SURVIVING_INDIVIDUAL_AMOUNT-1)]]
-    return crossing_over_parents
 
 
 def mutate_generation(generation):
@@ -90,7 +95,7 @@ def mutate_genes(individual):
         new_gene_value = -1
         while(new_gene_value < 0 or new_gene_value > CHROMOSSOME_LENGTH):
             gene_modifier = random.randrange(
-            MUTATION_LOW_MODIFIER, MUTATION_HIGH_MODIFIER)
+                MUTATION_LOW_MODIFIER, MUTATION_HIGH_MODIFIER)
             new_gene_value = genes[gene_index] + gene_modifier
 
         genes[gene_index] = new_gene_value
