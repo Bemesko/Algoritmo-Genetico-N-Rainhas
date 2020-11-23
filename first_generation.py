@@ -4,8 +4,9 @@ from constants import *
 from utilities import *
 
 
-# Função que cria individuos da primeira geração
 def individual_factory():  # feito
+    """Função que cria individuos da primeira geração"""
+
     new_individual = {
         GENES_KEY: [],
         SCORE_KEY: 0
@@ -15,8 +16,8 @@ def individual_factory():  # feito
     return new_individual
 
 
-# Função que junta os individos da primeira geração em uma lista
 def individual_list_factory():  # feito
+    """Função que junta os individos da primeira geração em uma lista"""
 
     new_individual_list = []
     for individual in range(INDIVIDUAL_AMOUNT):

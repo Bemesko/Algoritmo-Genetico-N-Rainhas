@@ -3,10 +3,10 @@ import copy
 
 from constants import *
 
-# Função que ordena e calcula a penalidade do individuo
-
 
 def score_individual(individual_chromossome):
+    """Função que ordena e calcula a penalidade do individuo"""
+
     penalty = 0
 
     clone_a = copy.deepcopy(individual_chromossome)
@@ -16,9 +16,11 @@ def score_individual(individual_chromossome):
     # Calculando reto -
     clone_reto.sort()
     penalty += calculate_penalty(clone_reto)
+
     # Calculando diagonal \
     order_list(clone_a, 1)
     penalty += calculate_penalty(clone_a)
+
     # Calculando diagonal /
     order_list(clone_b, -1)
     penalty += calculate_penalty(clone_b)
@@ -28,17 +30,17 @@ def score_individual(individual_chromossome):
     return penalty
 
 
-
-# Função que faz as diagonais se tornarem linhas horizontais
 def order_list(list, y_factor):
+    """Função que faz as diagonais se tornarem linhas horizontais"""
+
     for y in range(len(list)):
         list[y] = list[y] + y * y_factor
     list.sort()
 
-# Função que calcula a penalidade
-
 
 def calculate_penalty(list):
+    """Função que calcula a penalidade"""
+
     penalty = 0
     for y in range(len(list)-1):
         if (list[y] == list[y+1]):
@@ -46,14 +48,16 @@ def calculate_penalty(list):
     return penalty
 
 
-# Função que cria o ranking de individuos
 def sort_list_by_score(individuals_list):  # feito
+    """Função que cria o ranking de individuos"""
+
     # Scores maiores indicam indivíduos piores
     return sorted(individuals_list, key=lambda individual: individual[SCORE_KEY])
 
 
-# Função que mata os piores individuos
 def kill_worst_individuals(individuals_list):
+    """Função que mata os piores individuos"""
+
     for i in range(REMOVED_INDIVIDUAL_AMOUNT):
         del(individuals_list[-1])
 
