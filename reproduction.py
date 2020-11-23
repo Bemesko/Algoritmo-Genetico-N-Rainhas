@@ -23,7 +23,6 @@ def crossing_over(individuals_list):
 def add_baby_to_generation(baby_generation, parents_list):
     """Cria um bebê vazio, escolhe os pais dentro de uma lista de indivíduos
     e adiciona o bebê na lista baby_generation"""
-
     crossing_over_baby = {
         GENES_KEY: [],
         SCORE_KEY: 0
