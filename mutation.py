@@ -18,10 +18,18 @@ def mutate_generation(pure_babys):
     seja necessário)
     """
 
-    # TODO fazer isso aqui pegar babys aleatórios e não só os i primeiros. Pode se insipirar no while de "mutate_genes"
     babys_to_mutate = []
+    i = 0
 
-    for i in range(MUTATED_INDIVIDUALS_AMOUNT):
+    while i < MUTATED_GENES_AMOUNT:
+
+        random_baby_index = random.randrange(INDIVIDUAL_AMOUNT)
+
+        if random_baby_index not in babys_to_mutate:
+            babys_to_mutate.append(random_baby_index)
+            i = i+1
+
+    for i in babys_to_mutate:
         mutate_genes(pure_babys[i])
 
     print("mutation done!")
@@ -48,7 +56,9 @@ def mutate_genes(baby):
     while i < MUTATED_GENES_AMOUNT:
         """Seleciona uma quantidade MUTATED_GENES_AMOUNT de índices
         dos genes para serem modificados e põe eles na lista
-        exchanged_genes_index"""
+        exchanged_genes_index
+        """
+
         random_gene_index = random.randrange(CHROMOSSOME_LENGTH)
 
         if random_gene_index not in exchanged_genes_index:

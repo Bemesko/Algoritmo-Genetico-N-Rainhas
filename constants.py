@@ -4,8 +4,8 @@ import random
 INDIVIDUAL_AMOUNT = 10  # Quantidade de indivíduos por geração
 CHROMOSSOME_LENGTH = 8  # Quantidade de genes num cromossomo
 
-MUTATION_LOW_MODIFIER = -1  # Valor mínimo para modificar um gene na mutação
-MUTATION_HIGH_MODIFIER = 1  # Valor máximo para modificar um gene na mutação
+MUTATION_LOW_MODIFIER = -3  # Valor mínimo para modificar um gene na mutação
+MUTATION_HIGH_MODIFIER = 3  # Valor máximo para modificar um gene na mutação
 
 """Constantes dependentes """
 # Quantidade de indivíduos que sobrevivem de uma geração à outra
