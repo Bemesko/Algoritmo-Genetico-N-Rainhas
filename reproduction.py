@@ -20,9 +20,9 @@ def reproduction(individuals_list):
     while (len(pure_babys) < constants.INDIVIDUAL_AMOUNT):
         pure_babys.append(make_new_baby(individuals_list))
 
-    print("Nenéns criados:")
-    for i in pure_babys:
-        print(i[constants.GENES])
+    # print("Nenéns criados:")
+    # for i in pure_babys:
+    #     print(i[constants.GENES])
 
     mutate_babys = mutation.mutate_generation(pure_babys)
     return mutate_babys

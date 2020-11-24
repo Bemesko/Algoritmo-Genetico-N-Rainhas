@@ -31,7 +31,7 @@ def mutate_generation(pure_babys):
     for i in babys_to_mutate:
         mutate_genes(pure_babys[i])
 
-    print("mutation done!")
+    # print("mutation done!")
     return pure_babys
 
 

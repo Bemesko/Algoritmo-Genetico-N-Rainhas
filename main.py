@@ -13,16 +13,16 @@ print("lista de individuos geralda!")
 for individual in generation:
     individual[constants.SCORE] = ranking.score_individual(
         individual[constants.GENES])
-    utilities.plot_to_board(
-        individual[constants.GENES], individual[constants.SCORE])
+    # utilities.plot_to_board(
+    #     individual[constants.GENES], individual[constants.SCORE])
 
 generation = ranking.sort_list_by_score(generation)
-for i in generation:
-    print(i)
+# for i in generation:
+#     print(i)
 
 x = 0
 # y = 20
-while(generation[0][constants.SCORE] > 0):
+while(generation[5][constants.SCORE] > 0 and x < 500):
     x = x+1
     # if x == y:
     #     continuar = input('quer rodar mais 20?')
@@ -31,25 +31,27 @@ while(generation[0][constants.SCORE] > 0):
     #     else:
     #         y += 20
 
-    print(f"====================GERAÇÃO {x}========================")
+    print(x, end=" ")
     # Deletando os piores individuos
-    print("\nsó a nata: ")
+    # print("\nsó a nata: ")
     ranking.kill_worst_individuals(generation)
-    for i in generation:
-        utilities.plot_to_board(i[constants.GENES], i[constants.SCORE])
+    # for i in generation:
+    #     utilities.plot_to_board(i[constants.GENES], i[constants.SCORE])
 
     generation = reproduction.reproduction(generation)
 
+    # TODO deixar esses fors só pra dentro das funções
     for individual in generation:
         individual[constants.SCORE] = ranking.score_individual(
             individual[constants.GENES])
-        utilities.plot_to_board(
-            individual[constants.GENES], individual[constants.SCORE])
+        # utilities.plot_to_board(
+        #     individual[constants.GENES], individual[constants.SCORE])
 
     # Ordenando os individuos de acordo com suas penalidades
     generation = ranking.sort_list_by_score(generation)
-    for i in generation:
-        print(i)
+    # for i in generation:
+    #     print(i)
+    utilities.print_random_element(generation)
 
 
 print("Algoritmo genético concluído")

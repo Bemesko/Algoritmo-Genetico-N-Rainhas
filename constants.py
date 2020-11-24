@@ -1,8 +1,8 @@
 import random
 
 """Constantes Independentes"""
-INDIVIDUAL_AMOUNT = 100  # Quantidade de indivíduos por geração
-CHROMOSSOME_LENGTH = 6  # Quantidade de genes num cromossomo
+INDIVIDUAL_AMOUNT = 500  # Quantidade de indivíduos por geração
+CHROMOSSOME_LENGTH = 8  # Quantidade de genes num cromossomo
 
 # Valor mínimo para modificar um gene na mutação
 MUTATION_LOW_MODIFIER = -CHROMOSSOME_LENGTH

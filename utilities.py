@@ -5,7 +5,7 @@ import constants
 def plot_to_board(list, score):
     """Função que cria a tabela visual de ascii:
 
-    ### Exemplo de tabela quando CHROMOSSOME_LENGTH = 8
+    # Exemplo de tabela quando CHROMOSSOME_LENGTH = 8
 
     ```
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -57,3 +57,7 @@ def populate_with_unique_values(max_length):
             new_list.append(new_element)
 
     return new_list
+
+
+def print_random_element(list):
+    print(f"Indivíduo aleatório: {list[random.randint(0, len(list)-1)]}")

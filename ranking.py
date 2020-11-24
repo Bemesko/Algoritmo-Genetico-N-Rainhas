@@ -34,7 +34,7 @@ def score_individual(individual_chromossome):
     order_list(clone_b, -1)
     penalty += calculate_penalty(clone_b)
 
-    print(f"individuo teve multa = {penalty}")
+    # print(f"individuo teve multa = {penalty}")
 
     return penalty
 
