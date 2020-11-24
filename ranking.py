@@ -59,7 +59,7 @@ def order_list(list, y_factor):
 
 
 def calculate_penalty(list):
-    """Função que calcula a penalidade de uma lista já ordenada"""
+    """Função que calcula a multa de uma lista já ordenada"""
 
     penalty = 0
     for y in range(len(list)-1):
@@ -78,7 +78,7 @@ def sort_list_by_score(individuals_list):  # feito
 def kill_worst_individuals(individuals_list):
     """Função que mata os piores individuos numa lista"""
 
-    for i in range(REMOVED_INDIVIDUAL_AMOUNT):
+    for _ in range(REMOVED_INDIVIDUAL_AMOUNT):
         del(individuals_list[-1])
 
 

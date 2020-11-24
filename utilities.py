@@ -45,10 +45,15 @@ def plot_to_board(list, score):
     print("~"*30)
 
 
-def populate_with_unique_values(new_list, max_length):
-    """Pega uma lista vazia e vai acrescentando valores sem repeti-los.
+def populate_with_unique_values(max_length):
+    """Retorna uma lista preenchida com valores não repetidos.
     """
+
+    new_list = []
+
     while len(new_list) < max_length:
         new_element = random.randint(0, max_length-1)
         if new_element not in new_list:
             new_list.append(new_element)
+
+    return new_list

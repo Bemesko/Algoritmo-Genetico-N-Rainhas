@@ -19,7 +19,7 @@ def reproduction(individuals_list):
 
     pure_babys = []
     while (len(pure_babys) < INDIVIDUAL_AMOUNT):
-        add_baby_to_generation(pure_babys, individuals_list)
+        pure_babys.append(make_new_baby(individuals_list))
 
     print("Nenéns criados:")
     for i in pure_babys:
@@ -29,39 +29,35 @@ def reproduction(individuals_list):
     return mutate_babys
 
 
-def add_baby_to_generation(baby_generation, parents_generation):
-    """Cria um bebê vazio, escolhe os pais dentro de uma lista de indivíduos
-    e adiciona o bebê na lista baby_generation
+def make_new_baby(parents_generation):
+    """Retorna um novo bebê feito a partir de pais escolhidos
 
     ### INPUT
-    (list) baby_generation: A lista de indivíduos na qual o bebê será
-    adicionado
 
     (list) parents_generation: Uma lista contendo todos os indivíduos da geração
     dos paes.
 
     ### OUTPUT
-    Nenhum, mas modifica a lista baby_generation de modo que ao final da função
-    ela possua mais um indivíduo
+    (dict) new_baby: Um bebê novinho em folha feito a partir de 2 indivíduos da
+    parents_generation
     """
 
-    crossing_over_baby = {
+    new_baby = {
         GENES_KEY: [],
         SCORE_KEY: 0
     }
-    # TODO isso podia estar dentro da select parents
-    crossing_over_parents = [0, 0]
 
-    crossing_over_parents = select_parents(
-        crossing_over_parents, parents_generation)
+    crossing_over_parents = select_parents(parents_generation)
 
-    crossing_over(crossing_over_baby, crossing_over_parents)
+    new_baby[GENES_KEY] = crossing_over(crossing_over_parents)
 
-    baby_generation.append(crossing_over_baby)
+    return new_baby
 
 
-def select_parents(crossing_over_parents, individuals_list):
+def select_parents(individuals_list):
     """Seleciona dois indivíduos aleatórios de uma lista e retorna eles"""
+
+    crossing_over_parents = [0, 0]
 
     while(crossing_over_parents[0] == crossing_over_parents[1]):
         # TODO fazer essa escolha priorizar os que estão no topo do ranking
@@ -70,24 +66,30 @@ def select_parents(crossing_over_parents, individuals_list):
     return crossing_over_parents
 
 
-def crossing_over(crossing_over_baby, crossing_over_parents):
+def crossing_over(crossing_over_parents):
     """Pega pedaços dos genes de dois indivíduos pais e combina eles
     para ser os genes de um indivíduo bebê.
 
     ### INPUT
-    crossing_over_baby: Uma lista vazia na qual os genes serão acrescentados
     crossing_over_parents: Uma lista com dois indivíduos, cujos genes serão
     misturados, um deles contribuindo para os genes antes do ponto de split e
     o outro dando os genes para depois do ponto de split
+
+    ### OUTPUT
+    crossing_over_baby: Uma lista de genes para o novo bebê
     """
+
+    baby_genes = []
 
     for gene in range(CHROMOSSOME_LENGTH):
         if(gene < CROSSING_OVER_SPLIT_INDEX):
-            crossing_over_baby[GENES_KEY].append(
+            baby_genes.append(
                 crossing_over_parents[0][GENES_KEY][gene])
         else:
-            crossing_over_baby[GENES_KEY].append(
+            baby_genes.append(
                 crossing_over_parents[1][GENES_KEY][gene])
+
+    return baby_genes
 
 
 if __name__ == "__main__":

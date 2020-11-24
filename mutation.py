@@ -18,9 +18,9 @@ def mutate_generation(pure_babys):
     seja necessário)
     """
 
+    # TODO fazer isso aqui pegar babys aleatórios e não só os i primeiros. Pode se insipirar no while de "mutate_genes"
     babys_to_mutate = []
 
-    # TODO fazer isso aqui pegar babys aleatórios e não só os i primeiros. Pode se insipirar no while de "mutate_genes"
     for i in range(MUTATED_INDIVIDUALS_AMOUNT):
         mutate_genes(pure_babys[i])
 
@@ -33,13 +33,13 @@ def mutate_genes(baby):
     valores aleatórios
 
     ### INPUT
-    ({GENES_KEY: list, SCORE_KEY: int}) baby: um indivíduo recém criado, 
+    baby: um indivíduo recém criado, 
     consistindo de um dicionário, cujo elemento GENES_KEY é equivalente 
     aos genes decididos no crossing over e o SCORE_KEY é 0, pois ainda 
     não foi avaliado pela primeira vez
 
     ### OUTPUT
-    Sem output, apenas modifica o que está dentro do baby
+    Sem output, apenas faz a mutação dentro do baby
     """
 
     exchanged_genes_index = []
