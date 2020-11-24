@@ -60,8 +60,11 @@ def select_parents(individuals_list):
 
     while(crossing_over_parents[0] == crossing_over_parents[1]):
         # TODO fazer essa escolha priorizar os que estão no topo do ranking de um jeito melhor
-        crossing_over_parents = [individuals_list[random.randrange(0, constants.CROSSING_OVER_MAX_INDEX)],
-                                 individuals_list[random.randrange(0, constants.CROSSING_OVER_MAX_INDEX)]]
+        #! Quando todo mundo dos índices mais baixos é igual esse while fica rodando pra sempre
+        crossing_over_parents[0] = individuals_list[random.randrange(
+            0, constants.CROSSING_OVER_MAX_INDEX)]
+        crossing_over_parents[1] = individuals_list[random.randrange(
+            0, constants.CROSSING_OVER_MAX_INDEX)]
     return crossing_over_parents
 
 

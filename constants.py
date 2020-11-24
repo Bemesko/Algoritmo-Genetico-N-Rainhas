@@ -19,7 +19,8 @@ CROSSING_OVER_INDIVIDUAL_AMOUNT = SURVIVING_INDIVIDUAL_AMOUNT
 
 # Controla o índice máximo para escolher um pai em uma lista de indivíduos para fazer crossing over
 # Na lista, quanto menor o índice, melhor a pontuação, então queremos pais com pontuações boas
-CROSSING_OVER_MAX_INDEX = int((SURVIVING_INDIVIDUAL_AMOUNT-1)/2)
+#! Se esse valor for baixo demais e der hegemonia o sistema fica rodando pra sempre
+CROSSING_OVER_MAX_INDEX = int(SURVIVING_INDIVIDUAL_AMOUNT-1)
 
 # Índice do gene no qual vai acontecer o split no crossing over
 # (antes desse índice os genes são de um pai e depois dele são os genes do outro)
