@@ -27,7 +27,7 @@ while(individuals_list[0][SCORE_KEY] > 0):
             break
         else:
             y += 20
-            
+
     print(f"====================GERAÇÃO {x}========================")
     # Deletando os piores individuos
     print("\nsó a nata: ")
@@ -41,7 +41,7 @@ while(individuals_list[0][SCORE_KEY] > 0):
         individual[SCORE_KEY] = score_individual(individual[GENES_KEY])
         plot_to_board(individual[GENES_KEY], individual[SCORE_KEY])
 
-    # Ordenando os individos de acordo com suas penalidades
+    # Ordenando os individuos de acordo com suas penalidades
     individuals_list = sort_list_by_score(individuals_list)
     for i in individuals_list:
         print(i)

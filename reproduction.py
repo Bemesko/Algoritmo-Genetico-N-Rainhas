@@ -5,15 +5,15 @@ from constants import *
 
 
 def reproduction(individuals_list):
-    """Pega os melhores indivíduos de uma geração e 
+    """Pega os melhores indivíduos de uma geração e
     combina os números entre eles para criar indivíduos melhores
 
-    ### INPUT
+    # INPUT
     (list) individuals_list: Uma lista de dicionários contendo os genes
     e a pontuação de cada indivíduo.
 
-    ### OUTPUT
-    (list) mutate_babys: Uma lista de indivíduos após terem sido criados 
+    # OUTPUT
+    (list) mutate_babys: Uma lista de indivíduos após terem sido criados
     e terem sofrido a mutação necessária
     """
 
@@ -32,12 +32,12 @@ def reproduction(individuals_list):
 def make_new_baby(parents_generation):
     """Retorna um novo bebê feito a partir de pais escolhidos
 
-    ### INPUT
+    # INPUT
 
     (list) parents_generation: Uma lista contendo todos os indivíduos da geração
     dos paes.
 
-    ### OUTPUT
+    # OUTPUT
     (dict) new_baby: Um bebê novinho em folha feito a partir de 2 indivíduos da
     parents_generation
     """
@@ -60,9 +60,9 @@ def select_parents(individuals_list):
     crossing_over_parents = [0, 0]
 
     while(crossing_over_parents[0] == crossing_over_parents[1]):
-        # TODO fazer essa escolha priorizar os que estão no topo do ranking
-        crossing_over_parents = [individuals_list[random.randrange(0, SURVIVING_INDIVIDUAL_AMOUNT-1)],
-                                 individuals_list[random.randrange(0, SURVIVING_INDIVIDUAL_AMOUNT-1)]]
+        # TODO fazer essa escolha priorizar os que estão no topo do ranking de um jeito melhor
+        crossing_over_parents = [individuals_list[random.randrange(0, CROSSING_OVER_MAX_INDEX)],
+                                 individuals_list[random.randrange(0, CROSSING_OVER_MAX_INDEX)]]
     return crossing_over_parents
 
 
@@ -70,12 +70,12 @@ def crossing_over(crossing_over_parents):
     """Pega pedaços dos genes de dois indivíduos pais e combina eles
     para ser os genes de um indivíduo bebê.
 
-    ### INPUT
+    # INPUT
     crossing_over_parents: Uma lista com dois indivíduos, cujos genes serão
     misturados, um deles contribuindo para os genes antes do ponto de split e
     o outro dando os genes para depois do ponto de split
 
-    ### OUTPUT
+    # OUTPUT
     crossing_over_baby: Uma lista de genes para o novo bebê
     """
 

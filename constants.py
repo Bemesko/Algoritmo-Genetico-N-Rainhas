@@ -17,6 +17,10 @@ REMOVED_INDIVIDUAL_AMOUNT = INDIVIDUAL_AMOUNT - SURVIVING_INDIVIDUAL_AMOUNT
 # Indivíduos que vão sofrer o crossing over no começo da geração
 CROSSING_OVER_INDIVIDUAL_AMOUNT = SURVIVING_INDIVIDUAL_AMOUNT
 
+# Controla o índice máximo para escolher um pai em uma lista de indivíduos para fazer crossing over
+# Na lista, quanto menor o índice, melhor a pontuação, então queremos pais com pontuações boas
+CROSSING_OVER_MAX_INDEX = int((SURVIVING_INDIVIDUAL_AMOUNT-1)/2)
+
 # Índice do gene no qual vai acontecer o split no crossing over
 # (antes desse índice os genes são de um pai e depois dele são os genes do outro)
 CROSSING_OVER_SPLIT_INDEX = int(random.randrange(2, CHROMOSSOME_LENGTH-2))
