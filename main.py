@@ -27,6 +27,7 @@ while(individuals_list[0][SCORE_KEY] > 0):
             break
         else:
             y += 20
+            
     print(f"====================GERAÇÃO {x}========================")
     # Deletando os piores individuos
     print("\nsó a nata: ")
@@ -34,7 +35,7 @@ while(individuals_list[0][SCORE_KEY] > 0):
     for i in individuals_list:
         plot_to_board(i[GENES_KEY], i[SCORE_KEY])
 
-    individuals_list = crossing_over(individuals_list)
+    individuals_list = reproduction(individuals_list)
 
     for individual in individuals_list:
         individual[SCORE_KEY] = score_individual(individual[GENES_KEY])
