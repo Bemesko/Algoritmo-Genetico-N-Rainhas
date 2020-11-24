@@ -29,7 +29,7 @@ CROSSING_OVER_MAX_INDEX = int(SURVIVING_INDIVIDUAL_AMOUNT-1)
 CROSSING_OVER_SPLIT_INDEX = int(random.randrange(2, CHROMOSSOME_LENGTH-2))
 
 # Quantidade de indivíduos que vão sofrer uma mutação
-MUTATED_INDIVIDUALS_AMOUNT = 1
+MUTATED_INDIVIDUALS_AMOUNT = int(INDIVIDUAL_AMOUNT/100)
 
 # Quantidade de genes que vão ser mutados em cada indivíduo
 MUTATED_GENES_AMOUNT = 1

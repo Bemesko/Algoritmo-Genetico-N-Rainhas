@@ -22,7 +22,7 @@ generation = ranking.sort_list_by_score(generation)
 
 x = 0
 # y = 20
-while(generation[5][constants.SCORE] > 0 and x < 500):
+while(generation[1][constants.SCORE] > 0 and x < 500):
     x = x+1
     # if x == y:
     #     continuar = input('quer rodar mais 20?')
@@ -53,7 +53,10 @@ while(generation[5][constants.SCORE] > 0 and x < 500):
     #     print(i)
     utilities.print_random_element(generation)
 
+    # TODO adicionar uma condição pra fazer com que ele pare depois
+    # de um número de gerações consecutivas com um cara bom
+
 
 print("Algoritmo genético concluído")
-for i in generation:
-    print(i)
+for i in range(10):
+    print(generation[i])
