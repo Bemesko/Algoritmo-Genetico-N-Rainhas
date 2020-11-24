@@ -22,7 +22,7 @@ def reproduction(individuals_list):
 
     print("Nenéns criados:")
     for i in pure_babys:
-        print(i[constants.GENES_KEY])
+        print(i[constants.GENES])
 
     mutate_babys = mutation.mutate_generation(pure_babys)
     return mutate_babys
@@ -42,13 +42,13 @@ def make_new_baby(parents_generation):
     """
 
     new_baby = {
-        constants.GENES_KEY: [],
-        constants.SCORE_KEY: 0
+        constants.GENES: [],
+        constants.SCORE: 0
     }
 
     crossing_over_parents = select_parents(parents_generation)
 
-    new_baby[constants.GENES_KEY] = crossing_over(crossing_over_parents)
+    new_baby[constants.GENES] = crossing_over(crossing_over_parents)
 
     return new_baby
 
@@ -86,15 +86,15 @@ def crossing_over(crossing_over_parents):
     for gene in range(constants.CHROMOSSOME_LENGTH):
         if(gene < constants.CROSSING_OVER_SPLIT_INDEX):
             baby_genes.append(
-                crossing_over_parents[0][constants.GENES_KEY][gene])
+                crossing_over_parents[0][constants.GENES][gene])
         else:
             baby_genes.append(
-                crossing_over_parents[1][constants.GENES_KEY][gene])
+                crossing_over_parents[1][constants.GENES][gene])
 
     return baby_genes
 
 
 if __name__ == "__main__":
-    from first_generation import individual_list_factory
-    individuals_list = individual_list_factory()
+    from first_generation import generation_factory
+    individuals_list = generation_factory()
     reproduction(individuals_list)

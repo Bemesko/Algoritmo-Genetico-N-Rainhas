@@ -71,7 +71,7 @@ def sort_list_by_score(individuals_list):  # feito
     """Função que organiza uma lista de indivíduos por sua pontuação"""
 
     # Scores maiores indicam indivíduos piores
-    return sorted(individuals_list, key=lambda individual: individual[constants.SCORE_KEY])
+    return sorted(individuals_list, key=lambda individual: individual[constants.SCORE])
 
 
 def kill_worst_individuals(individuals_list):

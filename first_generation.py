@@ -2,7 +2,7 @@ import utilities
 import constants
 
 
-def individual_list_factory():
+def generation_factory():
     """Cria a lista de indivíduos da primeira geração e vai adicionando indivíduos"""
 
     new_individual_list = []
@@ -19,10 +19,10 @@ def individual_factory():  # feito
     """
 
     new_individual = {
-        constants.GENES_KEY: [],
-        constants.SCORE_KEY: 0
+        constants.GENES: [],
+        constants.SCORE: 0
     }
 
-    new_individual[constants.GENES_KEY] = utilities.populate_with_unique_values(
+    new_individual[constants.GENES] = utilities.populate_with_unique_values(
         constants.CHROMOSSOME_LENGTH)
     return new_individual

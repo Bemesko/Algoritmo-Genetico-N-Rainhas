@@ -20,7 +20,7 @@ def mutate_generation(pure_babys):
     babys_to_mutate = []
     i = 0
 
-    while i < constants.MUTATED_GENES_AMOUNT:
+    while i < constants.MUTATED_INDIVIDUALS_AMOUNT:
 
         random_baby_index = random.randrange(constants.INDIVIDUAL_AMOUNT)
 
@@ -70,7 +70,7 @@ def mutate_genes(baby):
         while(new_gene_value < 0 or new_gene_value > constants.CHROMOSSOME_LENGTH-1):
             gene_modifier = random.randrange(
                 constants.MUTATION_LOW_MODIFIER, constants.MUTATION_HIGH_MODIFIER)
-            new_gene_value = baby[constants.GENES_KEY][gene_index] + \
+            new_gene_value = baby[constants.GENES][gene_index] + \
                 gene_modifier
 
-        baby[constants.GENES_KEY][gene_index] = new_gene_value
+        baby[constants.GENES][gene_index] = new_gene_value

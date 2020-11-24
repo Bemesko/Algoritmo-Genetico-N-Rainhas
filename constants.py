@@ -1,11 +1,13 @@
 import random
 
 """Constantes Independentes"""
-INDIVIDUAL_AMOUNT = 10  # Quantidade de indivíduos por geração
-CHROMOSSOME_LENGTH = 8  # Quantidade de genes num cromossomo
+INDIVIDUAL_AMOUNT = 100  # Quantidade de indivíduos por geração
+CHROMOSSOME_LENGTH = 6  # Quantidade de genes num cromossomo
 
-MUTATION_LOW_MODIFIER = -3  # Valor mínimo para modificar um gene na mutação
-MUTATION_HIGH_MODIFIER = 3  # Valor máximo para modificar um gene na mutação
+# Valor mínimo para modificar um gene na mutação
+MUTATION_LOW_MODIFIER = -CHROMOSSOME_LENGTH
+# Valor máximo para modificar um gene na mutação
+MUTATION_HIGH_MODIFIER = CHROMOSSOME_LENGTH
 
 """Constantes dependentes """
 # Quantidade de indivíduos que sobrevivem de uma geração à outra
@@ -27,11 +29,11 @@ CROSSING_OVER_MAX_INDEX = int(SURVIVING_INDIVIDUAL_AMOUNT-1)
 CROSSING_OVER_SPLIT_INDEX = int(random.randrange(2, CHROMOSSOME_LENGTH-2))
 
 # Quantidade de indivíduos que vão sofrer uma mutação
-MUTATED_INDIVIDUALS_AMOUNT = int(INDIVIDUAL_AMOUNT)
+MUTATED_INDIVIDUALS_AMOUNT = 1
 
 # Quantidade de genes que vão ser mutados em cada indivíduo
-MUTATED_GENES_AMOUNT = int(CHROMOSSOME_LENGTH/2)
+MUTATED_GENES_AMOUNT = 1
 
 """ Constantes supérfluas """
-GENES_KEY = "genes"
-SCORE_KEY = "score"
+GENES = "genes"
+SCORE = "score"
