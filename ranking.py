@@ -1,7 +1,6 @@
 import random
 import copy
-
-from constants import *
+import constants
 
 
 def score_individual(individual_chromossome):
@@ -72,22 +71,21 @@ def sort_list_by_score(individuals_list):  # feito
     """Função que organiza uma lista de indivíduos por sua pontuação"""
 
     # Scores maiores indicam indivíduos piores
-    return sorted(individuals_list, key=lambda individual: individual[SCORE_KEY])
+    return sorted(individuals_list, key=lambda individual: individual[constants.SCORE_KEY])
 
 
 def kill_worst_individuals(individuals_list):
     """Função que mata os piores individuos numa lista"""
 
-    for _ in range(REMOVED_INDIVIDUAL_AMOUNT):
+    for _ in range(constants.REMOVED_INDIVIDUAL_AMOUNT):
         del(individuals_list[-1])
 
 
 if __name__ == "__main__":
-    from utilities import *
-    from constants import *
+    import utilities
 
     lista_teste = [[2, 5, 4, 3, 7, 6, 0, 7], [7, 3, 0, 1, 6, 4, 5, 2], [
         3, 5, 6, 4, 7, 2, 1, 0], [6, 5, 1, 3, 7, 0, 4, 2], [0, 1, 5, 4, 6, 7, 3, 2]]
 
     penalidade = score_individual(lista_teste[0])
-    plot_to_board(lista_teste[0], penalidade)
+    utilities.plot_to_board(lista_teste[0], penalidade)

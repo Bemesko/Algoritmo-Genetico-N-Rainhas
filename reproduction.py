@@ -1,7 +1,6 @@
 import random
-
-from mutation import *
-from constants import *
+import mutation
+import constants
 
 
 def reproduction(individuals_list):
@@ -18,14 +17,14 @@ def reproduction(individuals_list):
     """
 
     pure_babys = []
-    while (len(pure_babys) < INDIVIDUAL_AMOUNT):
+    while (len(pure_babys) < constants.INDIVIDUAL_AMOUNT):
         pure_babys.append(make_new_baby(individuals_list))
 
     print("Nenéns criados:")
     for i in pure_babys:
-        print(i[GENES_KEY])
+        print(i[constants.GENES_KEY])
 
-    mutate_babys = mutate_generation(pure_babys)
+    mutate_babys = mutation.mutate_generation(pure_babys)
     return mutate_babys
 
 
@@ -43,13 +42,13 @@ def make_new_baby(parents_generation):
     """
 
     new_baby = {
-        GENES_KEY: [],
-        SCORE_KEY: 0
+        constants.GENES_KEY: [],
+        constants.SCORE_KEY: 0
     }
 
     crossing_over_parents = select_parents(parents_generation)
 
-    new_baby[GENES_KEY] = crossing_over(crossing_over_parents)
+    new_baby[constants.GENES_KEY] = crossing_over(crossing_over_parents)
 
     return new_baby
 
@@ -61,8 +60,8 @@ def select_parents(individuals_list):
 
     while(crossing_over_parents[0] == crossing_over_parents[1]):
         # TODO fazer essa escolha priorizar os que estão no topo do ranking de um jeito melhor
-        crossing_over_parents = [individuals_list[random.randrange(0, CROSSING_OVER_MAX_INDEX)],
-                                 individuals_list[random.randrange(0, CROSSING_OVER_MAX_INDEX)]]
+        crossing_over_parents = [individuals_list[random.randrange(0, constants.CROSSING_OVER_MAX_INDEX)],
+                                 individuals_list[random.randrange(0, constants.CROSSING_OVER_MAX_INDEX)]]
     return crossing_over_parents
 
 
@@ -81,13 +80,13 @@ def crossing_over(crossing_over_parents):
 
     baby_genes = []
 
-    for gene in range(CHROMOSSOME_LENGTH):
-        if(gene < CROSSING_OVER_SPLIT_INDEX):
+    for gene in range(constants.CHROMOSSOME_LENGTH):
+        if(gene < constants.CROSSING_OVER_SPLIT_INDEX):
             baby_genes.append(
-                crossing_over_parents[0][GENES_KEY][gene])
+                crossing_over_parents[0][constants.GENES_KEY][gene])
         else:
             baby_genes.append(
-                crossing_over_parents[1][GENES_KEY][gene])
+                crossing_over_parents[1][constants.GENES_KEY][gene])
 
     return baby_genes
 

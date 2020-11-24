@@ -1,5 +1,5 @@
 import random
-from constants import *
+import constants
 
 
 def plot_to_board(list, score):
@@ -24,11 +24,11 @@ def plot_to_board(list, score):
     """
 
     matrix = []
-    for i in range(CHROMOSSOME_LENGTH):
+    for i in range(constants.CHROMOSSOME_LENGTH):
         matrix.append([])
 
-    for line in range(CHROMOSSOME_LENGTH):
-        for column in range(CHROMOSSOME_LENGTH):
+    for line in range(constants.CHROMOSSOME_LENGTH):
+        for column in range(constants.CHROMOSSOME_LENGTH):
             if (line == list[column]):
                 matrix[line].append("[x]")
             else:
@@ -37,8 +37,8 @@ def plot_to_board(list, score):
     print("~"*30)
     print(f'Indivíduo: {list}')
     print(f'Penalidade: {score}')
-    for line in range(CHROMOSSOME_LENGTH):
-        for column in range(CHROMOSSOME_LENGTH):
+    for line in range(constants.CHROMOSSOME_LENGTH):
+        for column in range(constants.CHROMOSSOME_LENGTH):
             print(f"{matrix[line][column]}", end=" ")
         print(" ")
 

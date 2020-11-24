@@ -1,6 +1,5 @@
 import random
-
-from constants import *
+import constants
 
 
 def mutate_generation(pure_babys):
@@ -21,9 +20,9 @@ def mutate_generation(pure_babys):
     babys_to_mutate = []
     i = 0
 
-    while i < MUTATED_GENES_AMOUNT:
+    while i < constants.MUTATED_GENES_AMOUNT:
 
-        random_baby_index = random.randrange(INDIVIDUAL_AMOUNT)
+        random_baby_index = random.randrange(constants.INDIVIDUAL_AMOUNT)
 
         if random_baby_index not in babys_to_mutate:
             babys_to_mutate.append(random_baby_index)
@@ -53,13 +52,13 @@ def mutate_genes(baby):
     exchanged_genes_index = []
 
     i = 0
-    while i < MUTATED_GENES_AMOUNT:
+    while i < constants.MUTATED_GENES_AMOUNT:
         """Seleciona uma quantidade MUTATED_GENES_AMOUNT de índices
         dos genes para serem modificados e põe eles na lista
         exchanged_genes_index
         """
 
-        random_gene_index = random.randrange(CHROMOSSOME_LENGTH)
+        random_gene_index = random.randrange(constants.CHROMOSSOME_LENGTH)
 
         if random_gene_index not in exchanged_genes_index:
             exchanged_genes_index.append(random_gene_index)
@@ -68,9 +67,10 @@ def mutate_genes(baby):
     for gene_index in exchanged_genes_index:
         new_gene_value = -1
         # while para modificar o gene sem q ele seja menor q e 0 exceda o tamanho padrão de um gene
-        while(new_gene_value < 0 or new_gene_value > CHROMOSSOME_LENGTH-1):
+        while(new_gene_value < 0 or new_gene_value > constants.CHROMOSSOME_LENGTH-1):
             gene_modifier = random.randrange(
-                MUTATION_LOW_MODIFIER, MUTATION_HIGH_MODIFIER)
-            new_gene_value = baby[GENES_KEY][gene_index] + gene_modifier
+                constants.MUTATION_LOW_MODIFIER, constants.MUTATION_HIGH_MODIFIER)
+            new_gene_value = baby[constants.GENES_KEY][gene_index] + \
+                gene_modifier
 
-        baby[GENES_KEY][gene_index] = new_gene_value
+        baby[constants.GENES_KEY][gene_index] = new_gene_value
