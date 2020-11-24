@@ -3,7 +3,25 @@ from constants import *
 
 
 def plot_to_board(list, score):
-    """Função que cria a tabela visual de ascii"""
+    """Função que cria a tabela visual de ascii:
+
+    ### Exemplo de tabela quando CHROMOSSOME_LENGTH = 8
+
+    ```
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Indivíduo: [0, 3, 0, 0, 0, 0, 0, 4]
+    Penalidade: 7
+    [x] [ ] [x] [x] [x] [x] [x] [ ]
+    [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]
+    [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]
+    [ ] [x] [ ] [ ] [ ] [ ] [ ] [ ]
+    [ ] [ ] [ ] [ ] [ ] [ ] [ ] [x]
+    [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]
+    [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]
+    [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ```
+    """
 
     matrix = []
     for i in range(CHROMOSSOME_LENGTH):
@@ -27,7 +45,9 @@ def plot_to_board(list, score):
     print("~"*30)
 
 
-def populate_with_unique_values(new_list, max_length, min_length=0):
+def populate_with_unique_values(new_list, max_length):
+    """Pega uma lista vazia e vai acrescentando valores sem repeti-los.
+    """
     while len(new_list) < max_length:
         new_element = random.randint(0, max_length-1)
         if new_element not in new_list:

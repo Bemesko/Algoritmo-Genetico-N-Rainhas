@@ -5,7 +5,17 @@ from constants import *
 
 
 def score_individual(individual_chromossome):
-    """Função que ordena e calcula a penalidade do individuo"""
+    """Função que, dada uma lista de genes, calcula a penalidade a ser
+    aplicada.
+
+    ### INPUT
+    (list) individual_chromossome: Uma lista guardando os genes a serem
+    avaliados
+
+    ### OUTPUT
+    (int) penalty: O total de multas que a individual_chromossome recebe.
+    Quanto mais alto o valor, pior o desempenho da lista.
+    """
 
     penalty = 0
 
@@ -31,7 +41,17 @@ def score_individual(individual_chromossome):
 
 
 def order_list(list, y_factor):
-    """Função que faz as diagonais se tornarem linhas horizontais"""
+    """Função que faz as diagonais se tornarem linhas horizontais
+
+    ### INPUT
+    list: a lista para ser posta em ordem, vai conter os genes.
+    y_factor: um valor que vai multiplicar todos os valores da
+    lista para converter as diagonais em linhas horizontais. Mais
+    dúvidas perguntar pro Greg.
+
+    ### OUTPUT
+    Não tem porque as modificações já são feitas na lista que é passada.
+    """
 
     for y in range(len(list)):
         list[y] = list[y] + y * y_factor
@@ -39,7 +59,7 @@ def order_list(list, y_factor):
 
 
 def calculate_penalty(list):
-    """Função que calcula a penalidade"""
+    """Função que calcula a penalidade de uma lista já ordenada"""
 
     penalty = 0
     for y in range(len(list)-1):
@@ -49,14 +69,14 @@ def calculate_penalty(list):
 
 
 def sort_list_by_score(individuals_list):  # feito
-    """Função que cria o ranking de individuos"""
+    """Função que organiza uma lista de indivíduos por sua pontuação"""
 
     # Scores maiores indicam indivíduos piores
     return sorted(individuals_list, key=lambda individual: individual[SCORE_KEY])
 
 
 def kill_worst_individuals(individuals_list):
-    """Função que mata os piores individuos"""
+    """Função que mata os piores individuos numa lista"""
 
     for i in range(REMOVED_INDIVIDUAL_AMOUNT):
         del(individuals_list[-1])
